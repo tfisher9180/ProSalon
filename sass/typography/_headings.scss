@@ -1,0 +1,41 @@
+h1, h2, h3, h4, h5, h6 {
+	font-family: $font__headings;
+	font-weight: 500;
+	color: $theme-headings;
+	line-height: 1.35em;
+	clear: both;
+}
+
+h1, h2, h3 {
+	margin-top: 17px;
+	margin-bottom: 8.5px;
+}
+
+h4, h5, h6 {
+	margin-top: 8.5px;
+	margin-bottom: 8.5px;
+}
+
+h1 {
+	font-size: 31px;
+}
+
+h2 {
+	font-size: 24px;
+}
+
+h3 {
+	font-size: 21px;
+}
+
+h4 {
+	font-size: 18px;
+}
+
+h5 {
+	font-size: 16px;
+}
+
+h6 {
+	font-size: 11px;
+}

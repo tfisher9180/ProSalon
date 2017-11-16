@@ -1,0 +1,14 @@
+a {
+	color: $theme-primary;
+	text-decoration: none;
+
+	&:visited {
+		color: $theme-primary;
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		color: $theme-link-hover;
+		outline: 0;
+	}
+}

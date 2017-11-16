@@ -1,0 +1,30 @@
+#topbar {
+  background-color: $theme-primary;
+  color: rgba(#fff, 0.4);
+  border-bottom: 1px solid rgba(#000, 0.05);
+
+  .content {
+    display: none;
+    margin: 1.15em 0;
+
+    .info {
+      display: block;
+      margin: 0.5em 0;
+
+      .fa {
+        padding-right: 10px;
+      }
+    }
+  }
+
+  .toggle {
+    width: 100%;
+    display: block;
+    font-size: 13px;
+    color: rgba(#fff, 0.4);
+
+    .fa {
+      padding: 12px 0;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+.container {
+  position: relative;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $default-grid-gutter;
+  padding-right: $default-grid-gutter;
+
+  .row {
+    flex-wrap: wrap;
+    margin-left: -$default-grid-gutter;
+    margin-right: -$default-grid-gutter;
+
+    .col {
+      padding-left: $default-grid-gutter;
+      padding-right: $default-grid-gutter;
+    }
+  }
+
+  @media (min-width: $device-md) {
+    width: 750px;
+  }
+
+  @media (min-width: $device-lg) {
+    width: 970px;
+  }
+
+  @media (min-width: $device-xl) {
+    width: 1170px;
+  }
+}
+
+.container .row,
+.flex,
+.flex-align-center,
+.flex-justify-center,
+.flex-center {
+  display: flex;
+}
+
+.flex-align-center,
+.flex-center {
+  align-items: center;
+}
+
+.flex-justify-center,
+.flex-center {
+  justify-content: center;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.text-center {
+  text-align: center;
+}
