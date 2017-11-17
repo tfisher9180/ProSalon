@@ -65,7 +65,7 @@
 							</div>
 						</div>
 					</div>
-					<a href="#" class="toggle text-center" aria-controls="topbar-content">
+					<a href="#" class="toggle text-center" aria-expanded="false" aria-controls="topbar-content">
 						<span class="sr-only"><?php esc_html_e( 'Toggle Topbar with Site Info', 'medlabs' ); ?></span>
 						<span class="fa fa-chevron-down"></span>
 					</a>
@@ -96,42 +96,28 @@
 					</div>
 					<div class="col">
 						<div class="site-menu">
-							<button type="button" class="menu-toggle" aria-controls="site-navigation">
+							<button type="button" class="menu-toggle flex-center" aria-expanded="false" aria-controls="primary-menu">
 								<span class="screen-reader-text"><?php esc_html_e( 'Toggle Site Navigation', 'medlabs' ); ?></span>
 								<i class="fa fa-bars"></i>
 							</button>
+							<nav id="site-navigation">
+								<div class="container">
+									<?php
+										wp_nav_menu( array(
+											'theme_location' => 'primary-menu',
+											'menu_id'        => 'primary-menu',
+											'menu_class'		 => 'nav-menu',
+											'container'			 => 'false',
+										) );
+									?>
+								</div>
+							</nav>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-			endif;
-
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'prosalon' ); ?></button>
-			<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				) );
-			?>
-		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

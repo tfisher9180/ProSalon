@@ -2,24 +2,18 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: 1px solid;
-	border-color: $color__border-button;
-	border-radius: 3px;
+	border: 1px solid transparent;
+	border-radius: 4px;
 	background: $color__background-button;
+	background-image: none;
 	color: inherit;
-	font: inherit;
-	@include font-size(0.75);
-	line-height: 1;
-	padding: .6em 1em .4em;
+	font-size: inherit;
+	line-height: inherit;
 	cursor: pointer;
 	-webkit-appearance: button;
 
-	&:hover {
-		border-color: $color__border-button-hover;
-	}
-
 	&:active,
 	&:focus {
-		border-color: $color__border-button-focus;
+		outline: 0;
 	}
 }

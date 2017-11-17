@@ -44,6 +44,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
+/* #444 */
 /*--------------------------------------------------------------
 # Font Awesome
 --------------------------------------------------------------*/
@@ -3581,25 +3582,15 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: 1px solid;
-	border-color: #ccc #ccc #bbb;
-	border-radius: 3px;
+	border: 1px solid transparent;
+	border-radius: 4px;
 	background: #e6e6e6;
+	background-image: none;
 	color: inherit;
-	font: inherit;
-	font-size: 15px;
-	font-size: 0.9375rem;
-	line-height: 1;
-	padding: .6em 1em .4em;
+	font-size: inherit;
+	line-height: inherit;
 	cursor: pointer;
 	-webkit-appearance: button;
-}
-
-button:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
-	border-color: #ccc #bbb #aaa;
 }
 
 button:active, button:focus,
@@ -3609,7 +3600,7 @@ input[type="reset"]:active,
 input[type="reset"]:focus,
 input[type="submit"]:active,
 input[type="submit"]:focus {
-	border-color: #aaa #bbb #bbb;
+	outline: 0;
 }
 
 input[type="text"],
@@ -3684,6 +3675,79 @@ a:hover, a:focus, a:active {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
+.menu-toggle {
+	min-height: 28px;
+	background: #bf5a91;
+	color: #fff;
+	padding: 0 6px;
+	font-size: 20px;
+}
+
+.nav-menu {
+	font-family: "Montserrat", sans-serif;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.nav-menu ul {
+	list-style: none;
+	display: none;
+}
+
+.nav-menu a {
+	display: block;
+}
+
+#site-navigation {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	background: #222;
+	z-index: 99;
+}
+
+#site-navigation.open {
+	display: block;
+}
+
+#site-navigation .nav-menu {
+	padding: 20px 0;
+	font-size: 14px;
+	max-height: 50vh;
+	overflow-y: auto;
+}
+
+#site-navigation .nav-menu a {
+	padding: 5px 4px;
+	margin: 3px 0;
+	font-weight: 500;
+	color: #aaa;
+}
+
+#site-navigation .nav-menu > li > a {
+	text-transform: uppercase;
+	color: #fff;
+}
+
+#site-navigation .nav-menu .menu-item-has-children > a,
+#site-navigation .nav-menu .page_item_has_children > a {
+	display: inline-block;
+}
+
+#site-navigation .nav-menu .menu-item-has-children > a:not(.dropdown-toggle),
+#site-navigation .nav-menu .page_item_has_children > a:not(.dropdown-toggle) {
+	width: calc( 100% - 50px);
+}
+
+#site-navigation .nav-menu .menu-item-has-children .dropdown-toggle,
+#site-navigation .nav-menu .page_item_has_children .dropdown-toggle {
+	width: 50px;
+	text-align: center;
+}
+
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
@@ -3877,13 +3941,29 @@ a:hover, a:focus, a:active {
 	text-align: center;
 }
 
+@media (min-width: 600px) {
+	.admin-bar.sticky #navbar {
+		top: 46px;
+	}
+}
+
+@media (min-width: 782px) {
+	.admin-bar.sticky #navbar {
+		top: 32px;
+	}
+}
+
 /*--------------------------------------------------------------
 ## Header
 --------------------------------------------------------------*/
+#topbar,
+#navbar {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
 #topbar {
 	background-color: #bf5a91;
 	color: rgba(255, 255, 255, 0.4);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 #topbar .content {
@@ -3912,12 +3992,29 @@ a:hover, a:focus, a:active {
 	padding: 12px 0;
 }
 
+#navbar {
+	background-color: #fff;
+}
+
+.sticky #navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+}
+
+#navbar .row {
+	min-height: 90px;
+}
+
 .site-branding .text-logo {
 	font-family: "Montserrat", sans-serif;
 	font-weight: 700;
 	font-size: 24px;
 	text-transform: uppercase;
 	letter-spacing: -1.25px;
+	margin: 0;
 }
 
 .site-branding .text-logo .text-primary {

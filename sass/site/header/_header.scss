@@ -1,7 +1,11 @@
+#topbar,
+#navbar {
+  border-bottom: 1px solid rgba(#000, 0.05);
+}
+
 #topbar {
   background-color: $theme-primary;
   color: rgba(#fff, 0.4);
-  border-bottom: 1px solid rgba(#000, 0.05);
 
   .content {
     display: none;
@@ -30,6 +34,22 @@
   }
 }
 
+#navbar {
+  background-color: $color__background-body;
+
+  .sticky & {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+  }
+
+  .row {
+    min-height: 90px;
+  }
+}
+
 .site-branding {
 
   .text-logo {
@@ -38,6 +58,7 @@
     font-size: 24px;
     text-transform: uppercase;
     letter-spacing: -1.25px;
+    margin: 0;
 
     .text-primary {
       color: $theme-primary;

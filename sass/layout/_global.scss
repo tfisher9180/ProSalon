@@ -65,3 +65,16 @@
 .text-center {
   text-align: center;
 }
+
+// admin bar fix
+@media (min-width: 600px) {
+  .admin-bar.sticky #navbar {
+    top: 46px;
+  }
+}
+
+@media (min-width: 782px) {
+  .admin-bar.sticky #navbar {
+    top: 32px;
+  }
+}
