@@ -3585,11 +3585,14 @@ input[type="submit"] {
 	border-color: #ccc #ccc #bbb;
 	border-radius: 3px;
 	background: #e6e6e6;
-	color: rgba(0, 0, 0, 0.8);
+	color: inherit;
+	font: inherit;
 	font-size: 15px;
 	font-size: 0.9375rem;
 	line-height: 1;
 	padding: .6em 1em .4em;
+	cursor: pointer;
+	-webkit-appearance: button;
 }
 
 button:hover,
@@ -3828,7 +3831,9 @@ a:hover, a:focus, a:active {
 .flex,
 .flex-align-center,
 .flex-justify-center,
-.flex-center {
+.flex-center,
+.flex-row,
+.flex-column {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -3854,6 +3859,20 @@ a:hover, a:focus, a:active {
 	        justify-content: space-between;
 }
 
+.flex-row {
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+}
+
+.flex-column {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+}
+
 .text-center {
 	text-align: center;
 }
@@ -3869,7 +3888,8 @@ a:hover, a:focus, a:active {
 
 #topbar .content {
 	display: none;
-	margin: 1.15em 0;
+	margin: 1em 0;
+	width: 100%;
 }
 
 #topbar .content .info {
@@ -3890,6 +3910,29 @@ a:hover, a:focus, a:active {
 
 #topbar .toggle .fa {
 	padding: 12px 0;
+}
+
+.site-branding .text-logo {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 700;
+	font-size: 24px;
+	text-transform: uppercase;
+	letter-spacing: -1.25px;
+}
+
+.site-branding .text-logo .text-primary {
+	color: #bf5a91;
+}
+
+.site-branding .text-logo .text-secondary {
+	color: #292929;
+}
+
+.social a {
+	font-size: 15px;
+	padding: 12px;
+	margin: 0 2px;
+	color: inherit;
 }
 
 /*--------------------------------------------------------------

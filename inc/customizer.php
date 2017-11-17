@@ -117,6 +117,100 @@ function prosalon_customize_register( $wp_customize ) {
 			'placeholder'				=> __( 'info@prosalon.com', 'prosalon' ),
 		),
 	) );
+
+	$wp_customize->add_section( 'social_media', array(
+		'title'							=> __( 'Social Media', 'prosalon' ),
+		'panel'							=> 'theme_options',
+	) );
+
+	// Facebook
+	// -----------------------------
+	$wp_customize->add_setting( 'url_facebook', array(
+		'default'			=> 'https://www.facebook.com',
+		'type'				=> 'theme_mod',
+		'capability'		=> 'edit_theme_options',
+		'transport'			=> '',
+		'sanitize_callback' => 'esc_url',
+	) );
+
+	$wp_customize->add_control( 'url_facebook', array(
+		'type'				=> 'url',
+		'section'			=> 'social_media',
+		'label'				=> __( 'Facebook URL', 'srcc' ),
+		'description'		=> '',
+	) );
+
+
+	// Twitter
+	// -----------------------------
+	$wp_customize->add_setting( 'url_twitter', array(
+		'default'			=> 'https://www.twitter.com',
+		'type'				=> 'theme_mod',
+		'capability'		=> 'edit_theme_options',
+		'transport'			=> '',
+		'sanitize_callback' => 'esc_url',
+	) );
+
+	$wp_customize->add_control( 'url_twitter', array(
+		'type'				=> 'url',
+		'section'			=> 'social_media',
+		'label'				=> __( 'Twitter URL', 'srcc' ),
+		'description'		=> '',
+	) );
+
+
+	// Instagram
+	// -----------------------------
+	$wp_customize->add_setting( 'url_instagram', array(
+		'default'			=> 'https://www.instagram.com',
+		'type'				=> 'theme_mod',
+		'capability'		=> 'edit_theme_options',
+		'transport'			=> '',
+		'sanitize_callback' => 'esc_url',
+	) );
+
+	$wp_customize->add_control( 'url_instagram', array(
+		'type'				=> 'url',
+		'section'			=> 'social_media',
+		'label'				=> __( 'Instagram URL', 'srcc' ),
+		'description'		=> '',
+	) );
+
+
+	// Google
+	// -----------------------------
+	$wp_customize->add_setting( 'url_google', array(
+		'default'			=> '',
+		'type'				=> 'theme_mod',
+		'capability'		=> 'edit_theme_options',
+		'transport'			=> '',
+		'sanitize_callback' => 'esc_url',
+	) );
+
+	$wp_customize->add_control( 'url_google', array(
+		'type'				=> 'url',
+		'section'			=> 'social_media',
+		'label'				=> __( 'Google URL', 'srcc' ),
+		'description'		=> '',
+	) );
+
+
+	// LinkedIn
+	// -----------------------------
+	$wp_customize->add_setting( 'url_linkedin', array(
+		'default'			=> 'https://www.linkedin.com',
+		'type'				=> 'theme_mod',
+		'capability'		=> 'edit_theme_options',
+		'transport'			=> '',
+		'sanitize_callback' => 'esc_url',
+	) );
+
+	$wp_customize->add_control( 'url_linkedin', array(
+		'type'				=> 'url',
+		'section'			=> 'social_media',
+		'label'				=> __( 'LinkedIn URL', 'srcc' ),
+		'description'		=> '',
+	) );
 }
 add_action( 'customize_register', 'prosalon_customize_register' );
 

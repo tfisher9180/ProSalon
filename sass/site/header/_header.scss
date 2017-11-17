@@ -5,7 +5,8 @@
 
   .content {
     display: none;
-    margin: 1.15em 0;
+    margin: 1em 0;
+    width: 100%;
 
     .info {
       display: block;
@@ -26,5 +27,34 @@
     .fa {
       padding: 12px 0;
     }
+  }
+}
+
+.site-branding {
+
+  .text-logo {
+    font-family: $font__headings;
+    font-weight: $font-weight-bold;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: -1.25px;
+
+    .text-primary {
+      color: $theme-primary;
+    }
+
+    .text-secondary {
+      color: $theme-link-hover;
+    }
+  }
+}
+
+.social {
+
+  a {
+    font-size: 15px;
+    padding: 12px;
+    margin: 0 2px;
+    color: inherit;
   }
 }

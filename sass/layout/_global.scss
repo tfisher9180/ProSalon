@@ -34,7 +34,9 @@
 .flex,
 .flex-align-center,
 .flex-justify-center,
-.flex-center {
+.flex-center,
+.flex-row,
+.flex-column {
   display: flex;
 }
 
@@ -50,6 +52,14 @@
 
 .justify-space-between {
   justify-content: space-between;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
 }
 
 .text-center {

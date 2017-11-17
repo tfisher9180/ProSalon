@@ -18,6 +18,11 @@
 		'email'				=> get_theme_mod( 'business_info_email' ),
 	);
 
+	$logo = array(
+		'primary'			=> get_theme_mod( 'logo_text_primary', 'Pro' ),
+		'secondary'			=> get_theme_mod( 'logo_text_secondary', 'Salon' ),
+	);
+
 ?>
 
 <!doctype html>
@@ -38,24 +43,30 @@
 
 		<div id="topbar">
 			<div class="container">
-				<div class="row flex-justify-center">
-					<div id="topbar-content" class="content business-info" aria-expanded="false">
+				<div class="row">
+					<div id="topbar-content" class="content" aria-expanded="false">
+						<div class="flex-center flex-column">
+							<?php prosalon_get_social(); ?>
 
-						<?php if ( ! empty( $business_info[ 'hours' ] ) ) : ?>
-							<span class="business-hours info"><i class="fa fa-clock-o"></i><?php printf( esc_html__( '%s' ), $business_info[ 'hours' ] ); ?></span>
-						<?php endif; ?>
+							<div class="business-info">
 
-						<?php if ( ! empty( $business_info[ 'phone' ] ) ) : ?>
-							<span class="phone-number info"><i class="fa fa-phone"></i><?php printf( esc_html__( '%s' ), $business_info[ 'phone' ] ); ?></span>
-						<?php endif; ?>
+								<?php if ( ! empty( $business_info[ 'hours' ] ) ) : ?>
+									<span class="business-hours info"><i class="fa fa-clock-o"></i><?php printf( esc_html__( '%s', 'prosalon' ), $business_info[ 'hours' ] ); ?></span>
+								<?php endif; ?>
 
-						<?php if ( ! empty( $business_info[ 'email' ] ) ) : ?>
-							<span class="email info"><i class="fa fa-envelope-o"></i><?php printf( esc_html__( '%s' ), $business_info[ 'email' ] ); ?></span>
-						<?php endif; ?>
+								<?php if ( ! empty( $business_info[ 'phone' ] ) ) : ?>
+									<span class="phone-number info"><i class="fa fa-phone"></i><?php printf( esc_html__( '%s', 'prosalon' ), $business_info[ 'phone' ] ); ?></span>
+								<?php endif; ?>
 
+								<?php if ( ! empty( $business_info[ 'email' ] ) ) : ?>
+									<span class="email info"><i class="fa fa-envelope-o"></i><?php printf( esc_html__( '%s', 'prosalon' ), $business_info[ 'email' ] ); ?></span>
+								<?php endif; ?>
+
+							</div>
+						</div>
 					</div>
 					<a href="#" class="toggle text-center" aria-controls="topbar-content">
-						<span class="sr-only"></span>
+						<span class="sr-only"><?php esc_html_e( 'Toggle Topbar with Site Info', 'medlabs' ); ?></span>
 						<span class="fa fa-chevron-down"></span>
 					</a>
 				</div>
@@ -65,19 +76,31 @@
 		<div id="navbar">
 			<div class="container">
 				<div class="row flex-align-center justify-space-between">
-					<div class="site-branding">
+					<div class="col">
+						<div class="site-branding">
 
-						<?php if ( has_custom_logo() ) : the_custom_logo(); else : ?>
-							<h1 class="text-logo">
-								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-									<?php bloginfo( 'name' ); ?>
-								</a>
-							</h1>
-						<?php endif; ?>
+							<?php if ( has_custom_logo() ) : the_custom_logo(); else : ?>
+								<h1 class="text-logo">
+									<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex-align-center" rel="home">
+										<span class="text-primary">
+											<?php printf( esc_html__( '%s', 'prosalon' ), $logo[ 'primary' ] ); ?>
+										</span>
+										<span class="text-secondary">
+											<?php printf( esc_html__( '%s', 'prosalon' ), $logo[ 'secondary' ] ); ?>
+										</span>
+									</a>
+								</h1>
+							<?php endif; ?>
 
+						</div>
 					</div>
-					<div class="site-menu">
-
+					<div class="col">
+						<div class="site-menu">
+							<button type="button" class="menu-toggle" aria-controls="site-navigation">
+								<span class="screen-reader-text"><?php esc_html_e( 'Toggle Site Navigation', 'medlabs' ); ?></span>
+								<i class="fa fa-bars"></i>
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
