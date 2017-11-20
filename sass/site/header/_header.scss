@@ -7,6 +7,10 @@
   background-color: $theme-primary;
   color: rgba(#fff, 0.4);
 
+  a:hover {
+    color: rgba(#fff, 0.8);
+  }
+
   .content {
     display: none;
     margin: 1em 0;
@@ -19,6 +23,16 @@
       .fa {
         padding-right: 10px;
       }
+
+      @media (min-width: $device-lg) {
+        margin: 0;
+        padding: 0 15px;
+      }
+    }
+
+    @media (min-width: $device-lg) {
+      display: block;
+      margin: 0;
     }
   }
 
@@ -31,6 +45,14 @@
     .fa {
       padding: 12px 0;
     }
+
+    @media (min-width: $device-lg) {
+      display: none;
+    }
+  }
+
+  @media (min-width: $device-lg) {
+    min-height: 40px;
   }
 }
 
@@ -45,8 +67,28 @@
     z-index: 100;
   }
 
+  a {
+    color: $theme-headings;
+
+    &:hover {
+      color: $theme-primary;
+    }
+  }
+
   .row {
     min-height: 90px;
+  }
+
+  .menu-toggle {
+    order: 2;
+  }
+
+  .search-toggle {
+    padding: 0 10px 0 0;
+
+    @media (min-width: $device-lg) {
+      padding: 0 0 0 40px;
+    }
   }
 }
 
@@ -77,5 +119,6 @@
     padding: 12px;
     margin: 0 2px;
     color: inherit;
+    line-height: 1em;
   }
 }

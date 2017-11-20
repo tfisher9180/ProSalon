@@ -1,9 +1,10 @@
 a {
 	color: $theme-primary;
 	text-decoration: none;
+	transition: color 0.2s;
 
 	&:visited {
-		color: $theme-primary;
+		color: inherit;
 	}
 	&:hover,
 	&:focus,

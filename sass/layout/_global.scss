@@ -7,7 +7,7 @@
   padding-right: $default-grid-gutter;
 
   .row {
-    flex-wrap: wrap;
+    position: relative;
     margin-left: -$default-grid-gutter;
     margin-right: -$default-grid-gutter;
 
@@ -40,13 +40,21 @@
   display: flex;
 }
 
+.flex-inline,
+.flex-inline-align-center {
+  display: inline-flex;
+}
+
 .flex-align-center,
-.flex-center {
+.flex-center,
+.flex-inline-center,
+.flex-inline-align-center {
   align-items: center;
 }
 
 .flex-justify-center,
-.flex-center {
+.flex-center,
+.flex-inline-center {
   justify-content: center;
 }
 
@@ -64,6 +72,37 @@
 
 .text-center {
   text-align: center;
+}
+
+
+@media (min-width: $device-lg) {
+  .flex-lg {
+    display: flex;
+  }
+
+  .flex-lg-row {
+    flex-direction: row;
+  }
+
+  .justify-lg-space-between {
+    justify-content: space-between;
+  }
+
+  .flex-lg-align-center {
+    align-items: center;
+  }
+
+  .flex-lg-wrap {
+    flex-wrap: wrap;
+  }
+
+  .flex-lg-1 {
+    flex: 1 0 auto;
+  }
+
+  .flex-lg-justify-end {
+    justify-content: flex-end;
+  }
 }
 
 // admin bar fix

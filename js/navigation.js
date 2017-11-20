@@ -120,4 +120,46 @@
     });
   })();
 
+  // Toggle focus class for dropdowns on touch devices
+  (function() {
+    if ( ! siteNavigation.length || ! siteNavigation.children().length ) {
+      return;
+    }
+
+    siteNavigation.find( 'a' ).on( 'focus blur', function() {
+      $( this ).parents( 'li' ).toggleClass( 'focus' );
+    });
+
+    if ( 'ontouchstart' in window ) {
+      $( window ).on( 'resize', toggleFocusClassTouchScreen );
+      toggleFocusClassTouchScreen();
+    }
+
+    function toggleFocusClassTouchScreen() {
+      var dropdownItemsLinks = siteNavigation.find( '.menu-item-has-children > a, .page_item_has_children > a' );
+      var items = siteNavigation.find( 'li' );
+
+
+      if ( navbarToggle.css( 'display' ) == 'none' ) {
+        $( document.body ).on( 'touchstart', function( e ) {
+          if ( ! $( e.target ).closest( items ).length ) {
+            items.removeClass( 'focus' );
+          }
+        });
+
+        dropdownItemsLinks.on( 'touchstart', function( e ) {
+          var targetParent = $( this ).parent( 'li' );
+
+          if ( ! targetParent.hasClass( 'focus' ) ) {
+            e.preventDefault();
+            targetParent.toggleClass( 'focus' );
+            targetParent.siblings( '.focus' ).removeClass( 'focus' );
+          }
+        });
+      } else {
+        dropdownItemsLinks.unbind( 'touchstart' );
+      }
+    }
+  })();
+
 })(jQuery);

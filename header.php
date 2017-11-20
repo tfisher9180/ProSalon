@@ -43,12 +43,12 @@
 
 		<div id="topbar">
 			<div class="container">
-				<div class="row">
+				<div class="row flex-column flex-lg-row">
 					<div id="topbar-content" class="content" aria-expanded="false">
-						<div class="flex-center flex-column">
+						<div class="flex-center flex-column flex-lg-row justify-lg-space-between">
 							<?php prosalon_get_social(); ?>
 
-							<div class="business-info">
+							<div class="business-info flex-lg flex-lg-align-center">
 
 								<?php if ( ! empty( $business_info[ 'hours' ] ) ) : ?>
 									<span class="business-hours info"><i class="fa fa-clock-o"></i><?php printf( esc_html__( '%s', 'prosalon' ), $business_info[ 'hours' ] ); ?></span>
@@ -66,7 +66,7 @@
 						</div>
 					</div>
 					<a href="#" class="toggle text-center" aria-expanded="false" aria-controls="topbar-content">
-						<span class="sr-only"><?php esc_html_e( 'Toggle Topbar with Site Info', 'medlabs' ); ?></span>
+						<span class="sr-only"><?php esc_html_e( 'Toggle Topbar with Site Info', 'prosalon' ); ?></span>
 						<span class="fa fa-chevron-down"></span>
 					</a>
 				</div>
@@ -95,23 +95,34 @@
 						</div>
 					</div>
 					<div class="col">
-						<div class="site-menu">
-							<button type="button" class="menu-toggle flex-center" aria-expanded="false" aria-controls="primary-menu">
-								<span class="screen-reader-text"><?php esc_html_e( 'Toggle Site Navigation', 'medlabs' ); ?></span>
+						<div class="site-menu flex-inline-align-center">
+							<button type="button" class="menu-toggle flex-inline-center" aria-expanded="false" aria-controls="primary-menu">
+								<span class="screen-reader-text"><?php esc_html_e( 'Toggle Site Navigation', 'prosalon' ); ?></span>
 								<i class="fa fa-bars"></i>
 							</button>
 							<nav id="site-navigation">
-								<div class="container">
-									<?php
-										wp_nav_menu( array(
-											'theme_location' => 'primary-menu',
-											'menu_id'        => 'primary-menu',
-											'menu_class'		 => 'nav-menu',
-											'container'			 => 'false',
-										) );
-									?>
-								</div>
+								<?php
+									wp_nav_menu( array(
+										'theme_location' => 'primary-menu',
+										'menu_id'        => 'primary-menu',
+										'menu_class'		 => 'nav-menu flex-lg flex-lg-align-center flex-lg-wrap flex-lg-justify-end',
+										'container'			 => 'false',
+									) );
+								?>
 							</nav>
+							<a href="#" class="search-toggle">
+								<span class="screen-reader-text"><?php esc_html_e( 'Toggle Search Menu', 'prosalon' ); ?></span>
+								<span class="fa fa-search"></span>
+								<div class="site-search">
+									<form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
+										<label>
+											<span class="screen-reader-text"><?php esc_html_e( 'Search: Type and press enter.', 'prosalon' ); ?></span>
+											<input type="search" class="search-field" placeholder="Search …" value="" name="s" title="Search for:" />
+										</label>
+										<input type="submit" class="search-submit" value="Search" />
+									</form>
+								</div>
+							</a>
 						</div>
 					</div>
 				</div>
