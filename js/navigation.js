@@ -7,6 +7,10 @@
   var navbar = $( '#navbar' );
   var navbarToggle = navbar.find( '.menu-toggle' );
 
+  var searchToggle = navbar.find( '.search-toggle' );
+  var searchContainer = $( '#site-search' );
+  var searchClose = searchContainer.find( '.close' );
+
   var siteNavigationContainer = $( '#site-navigation' );
   var siteNavigation = siteNavigationContainer.find( '> div > ul, > ul' );
   var siteNavigationDropdowns = siteNavigation.find( '.menu-item-has-children > a, .page_item_has_children > a' );
@@ -85,6 +89,24 @@
     });
   })();
 
+  // Search Toggle
+  (function() {
+    if ( ! searchToggle.length || ! searchContainer.children().length ) {
+      return;
+    }
+
+    var toggleSearchFn = function() {
+      navbar.toggleClass( 'search-open' );
+      searchContainer.find( 'input' ).val( '' ).focus();
+    };
+
+    // toggle
+    searchToggle.add( searchClose ).on( 'click', function( e ) {
+      e.preventDefault();
+      toggleSearchFn();
+    });
+  })();
+
   // Site Navigation Dropdown Toggle
   (function() {
     if ( ! siteNavigation.length || ! siteNavigation.children().length ) {
@@ -126,7 +148,7 @@
       return;
     }
 
-    siteNavigation.find( 'a' ).on( 'focus blur', function() {
+    siteNavigation.find( 'a:not(.dropdown-toggle)' ).on( 'focus blur', function() {
       $( this ).parents( 'li' ).toggleClass( 'focus' );
     });
 
@@ -160,6 +182,26 @@
         dropdownItemsLinks.unbind( 'touchstart' );
       }
     }
+  })();
+
+  // Push Submenu to the left if no space available on the right
+  (function() {
+    if ( ! siteNavigation.length || ! siteNavigation.children().length ) {
+      return;
+    }
+
+    $( window ).on( 'load resize', function() {
+      var windowWidth = $( window ).width();
+      var childrenItems = siteNavigation.find( 'li.menu-item-has-children, li.page_item_has_children' );
+
+      $.each( childrenItems, function( index, value ) {
+        var el = $( this );
+        var elPos = el.find( '> ul' ).offset().left;
+        var submenuWidth = el.find( '> ul' ).width();
+
+        console.log( windowWidth - ( elPos + submenuWidth ) );
+      });
+    });
   })();
 
 })(jQuery);

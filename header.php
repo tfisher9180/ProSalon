@@ -113,16 +113,10 @@
 							<a href="#" class="search-toggle">
 								<span class="screen-reader-text"><?php esc_html_e( 'Toggle Search Menu', 'prosalon' ); ?></span>
 								<span class="fa fa-search"></span>
-								<div class="site-search">
-									<form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
-										<label>
-											<span class="screen-reader-text"><?php esc_html_e( 'Search: Type and press enter.', 'prosalon' ); ?></span>
-											<input type="search" class="search-field" placeholder="Search …" value="" name="s" title="Search for:" />
-										</label>
-										<input type="submit" class="search-submit" value="Search" />
-									</form>
-								</div>
 							</a>
+							<div id="site-search">
+								<?php get_search_form(); ?>
+							</div>
 						</div>
 					</div>
 				</div>
